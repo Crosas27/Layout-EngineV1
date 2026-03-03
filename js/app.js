@@ -151,7 +151,7 @@ function renderSvg(wall, ribs) {
 
   const wallLength = wall.length;
   const svgWidth = svg.clientWidth;
-  const svgHeight = 200;
+  const svgHeight = 260;
 
   svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
 
