@@ -253,7 +253,7 @@ for (let x = 0; x < wall.length; x += panelCoverage) {
   dimText.setAttribute("y", panelDimY - 4);
   dimText.setAttribute("fill", "#CFD8DC");
   dimText.setAttribute("text-anchor", "middle");
-  dimText.setAttribute("font-size", "12");
+  dimText.setAttribute("font-size", "10");
 
   dimText.textContent = formatToField(panelWidth);
 
@@ -276,7 +276,7 @@ for (let x = 0; x < wall.length; x += panelCoverage) {
   // ----- TOTAL WALL DIMENSION (BOTTOM) -----
 
 const dimY = 200; // below wall
-const dimPadding = 12;
+const dimPadding = 10;
 const startX = dimPadding;
 const endX = (wallLength * scale) - dimPadding;
 
@@ -320,7 +320,7 @@ totalDimText.setAttribute("x", svgWidth / 2);
 totalDimText.setAttribute("y", dimY - 10);
 totalDimText.setAttribute("fill", "#4FC3F7");
 totalDimText.setAttribute("text-anchor", "middle");
-totalDimText.setAttribute("font-size", "14");
+totalDimText.setAttribute("font-size", "12");
 
 totalDimText.textContent = formatToField(wallLength);
 
