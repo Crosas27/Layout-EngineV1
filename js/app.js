@@ -320,7 +320,7 @@ totalDimText.setAttribute("fill", "#4FC3F7");
 totalDimText.setAttribute("text-anchor", "middle");
 totalDimText.setAttribute("font-size", "14");
 
-dimText.textContent = formatToField(wallLength);
+totalDimText.textContent = formatToField(wallLength);
 
 svg.appendChild(totalDimText);
   
