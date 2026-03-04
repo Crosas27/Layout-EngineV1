@@ -111,7 +111,6 @@ function handleRender() {
   wall.threshold = parseFloat(document.getElementById("threshold").value);
 
   const ribs = calculateRibs(wall);
-  const panelCount = Math.ceil(wall.length / wall.panelCoverage);
   
   displayRibs(ribs);
   renderSvg(wall, ribs);
@@ -141,6 +140,8 @@ function calculateRibs(wall) {
   }
 
   return ribs;
+  
+  const panelCount = Math.ceil(wall.length / wall.panelCoverage);
 }
 
 function renderSvg(wall, ribs) {
