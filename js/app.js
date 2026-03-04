@@ -11,16 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function displayRibs(ribs){ 
 
-const panelCount = Math.ceil(wall.length / wall.panelCoverage);
+  const container = document.getElementById("ribOutput");
+  if (!container) return;
 
-let html = `
-  <h3>Layout Summary</h3>
-  <div><strong>Total Panels:</strong> ${panelCount}</div>
-  <div><strong>Wall Length:</strong> ${formatToField(wall.length)}</div>
-  <hr>
-  <h3>Rib Layout</h3>
-  <ul>
-`;
+  if (ribs.length === 0) {
+    container.innerHTML = "<p>No ribs calculated.</p>";
+    return;
+  }
+
+  const wall = project.walls[currentWallIndex];
+  const panelCount = Math.ceil(wall.length / wall.panelCoverage);
+
+  const lastRib = ribs[ribs.length - 1];
+  const remaining = wall.length - lastRib.position;
+
+  let html = `
+    <h3>Layout Summary</h3>
+    <div><strong>Total Panels:</strong> ${panelCount}</div>
+    <div><strong>Wall Length:</strong> ${formatToField(wall.length)}</div>
+    <hr>
+    <h3>Rib Layout</h3>
+    <ul>
+  `;
 
 const container = document.getElementById("ribOutput");
   if (!container) return;
@@ -32,8 +44,6 @@ const container = document.getElementById("ribOutput");
   const wall = project.walls[currentWallIndex];
   const lastRib = ribs[ribs.length - 1];
   const remaining = wall.length - lastRib.position;
-
-  let html = "<h3>Rib Layout</h3><ul>";
 
   ribs.forEach(rib => {
     html += `
@@ -153,7 +163,6 @@ function calculateRibs(wall) {
 
   return ribs;
   
-  const panelCount = Math.ceil(wall.length / wall.panelCoverage);
 }
 
 function renderSvg(wall, ribs) {
